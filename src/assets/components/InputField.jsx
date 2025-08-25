@@ -6,7 +6,10 @@ const InputField = () => {
 
     function handleInputData(formData) {
         const newIngredient = formData.get("ingredient")
-        if(!newIngredient) return
+        if(!newIngredient) {
+            alert("You're not allowed to submit empty")
+            return
+        }
         setIngredient(prevIngredient => [...prevIngredient, newIngredient])
     } 
 
@@ -20,7 +23,7 @@ const InputField = () => {
         <button className='rounded-sm p-2 text-white bg-black w-42'>+ Add Ingredient</button>
     </form>
 
-    <ul className='flex flex-col text-center mt-10 list-disc list-inside'>{listOfIngredients}</ul>
+    <ul className='w-fit mx-auto mt-10 list-disc list-inside'>{listOfIngredients}</ul>
     </>
   )
 }
