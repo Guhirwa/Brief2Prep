@@ -26,14 +26,14 @@ const InputField = () => {
 
   return (
     <>
-      <div className='flex flex-col items-center'>
+      <div className='grid justify-center'>
         <form action={handleInputData} className='mt-6'>
           <label htmlFor="inputField"></label>
-          <input placeholder='e.g: beef' name='ingredient' className='p-2 w-80 border border-gray-400 rounded-sm' id='inputField' type="text" />
-          <button className='ml-8 cursor-pointer rounded-sm p-2 text-white bg-black w-42 font-semibold'>+ Add Ingredient</button>
+          <input placeholder='e.g: beef' name='ingredient' className='p-2 w-80 border border-gray-400 rounded-sm invalid:bg-red-400' id='inputField' type="text" />
+          <button className='ml-8 cursor-pointer rounded-sm p-2 text-white bg-black w-42 font-semibold transition duration-500 ease-out hover:text-black hover:bg-gray-300 hover:scale-105'>+ Add Ingredient</button>
         </form>
-
-      <ul className='mt-8 list-disc list-inside'>{listOfIngredients}</ul>
+        {ingredient.length > 0 && <h1 className='my-6 font-bold text-xl'>Ingredients in hand:</h1>}
+        <ul className='grid justify-center ml-8 list-disc list-inside'>{listOfIngredients}</ul>
       </div>
       <div className={`absolute bottom-2 ml-[2.3%] flex gap-16 bg-gray-200 p-5 w-[95%] justify-between rounded-md mt-6 transition duration-300 ease-in-out ${ingredient.length > 0 ? "opacity-100" : "opacity-10"}`}>
         <div className='grid'>
