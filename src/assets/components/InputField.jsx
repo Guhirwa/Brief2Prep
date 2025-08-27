@@ -25,15 +25,24 @@ const InputField = () => {
     ))
 
   return (
-    <div className='flex flex-col items-center'>
+    <>
+      <div className='flex flex-col items-center'>
         <form action={handleInputData} className='mt-6'>
-        <label htmlFor="inputField"></label>
-        <input placeholder='e.g: beef' name='ingredient' className='p-2 w-80 border border-gray-400 rounded-sm' id='inputField' type="text" />
-        <button className='ml-8 cursor-pointer rounded-sm p-2 text-white bg-black w-42'>+ Add Ingredient</button>
-    </form>
+          <label htmlFor="inputField"></label>
+          <input placeholder='e.g: beef' name='ingredient' className='p-2 w-80 border border-gray-400 rounded-sm' id='inputField' type="text" />
+          <button className='ml-8 cursor-pointer rounded-sm p-2 text-white bg-black w-42 font-semibold'>+ Add Ingredient</button>
+        </form>
 
-    <ul className='mt-10 list-disc list-inside'>{listOfIngredients}</ul>
-    </div>
+      <ul className='mt-8 list-disc list-inside'>{listOfIngredients}</ul>
+      </div>
+      <div className={`absolute bottom-2 ml-[2.3%] flex gap-16 bg-gray-200 p-5 w-[95%] justify-between rounded-md mt-6 transition duration-300 ease-in-out ${ingredient.length > 0 ? "opacity-100" : "opacity-10"}`}>
+        <div className='grid'>
+          <h1 className='font-bold text-xl'>Ready for a Recipe?</h1>
+          <p>Generate a recipe from your list of ingredients.</p>
+        </div>
+        <button className='bg-amber-600 h-fit py-1 px-4 rounded-md text-white font-semibold'>Get a recipe</button>
+      </div>
+    </>
   )
 }
 
